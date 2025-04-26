@@ -7,10 +7,27 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="FsLexYacc" Version="11.3.0" />
     <PackageReference Include="Giraffe" Version="6.4.0" />
     <PackageReference Include="Giraffe.ViewEngine" Version="1.4.*" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Absyn.fs" />
+
+    <FsYacc Include="FunPar.fsy" >
+      <OtherFlags>-v --module FunPar</OtherFlags>
+    </FsYacc>
+    <Compile Include="FunPar.fs" />
+
+    <FsLex Include="FunLex.fsl" >
+      <OtherFlags>--unicode</OtherFlags>
+    </FsLex>
+    <Compile Include="FunLex.fs" />
+
+    <Compile Include="Fun.fs" />
+    <Compile Include="Parse.fs" />
+    <Compile Include="ParseAndRun.fs" />
+
     <Compile Include="Model.fs" />
     <Compile Include="View.fs" />
     <Compile Include="WebApp.fs" />
