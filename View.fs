@@ -17,11 +17,13 @@ let layout (content: XmlNode list) =
         body [] content
     ]
 
-let partial () =
-    h1 [] [ encodedText "Project3" ]
-
 let index (model : Message) =
     [
-        partial()
+        h1 [] [ encodedText "Project3" ]
+        form [ _method "GET"; _action "/parse" ] [
+            button [ _type "submit" ] [ encodedText "Parse" ]
+            input [ _type "text"; _name "program"; _placeholder "Enter program here" ]
+        ]
         p [] [ encodedText model.Text ]
-    ] |> layout
+    ]
+    |> layout
