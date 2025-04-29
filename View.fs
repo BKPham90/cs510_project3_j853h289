@@ -13,6 +13,7 @@ let layout (content: XmlNode list) =
                 _type "text/css"
                 _href "/main.css" 
             ]
+            script [ _type "module"; _src "/syntaxtree.js"; ] []
         ]
         body [] content
     ]
@@ -24,6 +25,8 @@ let index (model : Message) =
             button [ _type "submit" ] [ encodedText "Parse" ]
             input [ _type "text"; _name "program"; _placeholder "Enter program here" ]
         ]
+        textarea [ _id "code"; ] []
+        canvas [ _id "canvas"; ] []
         p [] [ encodedText model.Text ]
     ]
     |> layout

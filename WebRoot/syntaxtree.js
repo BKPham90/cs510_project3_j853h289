@@ -3,7 +3,7 @@
 
 'use strict';
 
-const VERSION = 'v1.2';
+// const VERSION = 'v1.2';
 
 import Tree from './tree.js';
 import rotateTip from './tip.js';
@@ -16,7 +16,7 @@ const tree = new Tree();
 window.onload = () => {
   registerServiceWorker();
 
-  e('version').innerHTML = VERSION;
+  // e('version').innerHTML = VERSION;
   tree.setCanvas(e('canvas'));
   registerCallbacks();
 
@@ -25,7 +25,7 @@ window.onload = () => {
 
   update();
 
-  rotateTip();
+  // rotateTip();
   setInterval(rotateTip, 30 * 1000);
 };
 
@@ -47,47 +47,47 @@ function registerServiceWorker() {
 function registerCallbacks() {
   e('code').oninput = update;
 
-  e('font').onchange = () => {
-    tree.setFont(e('font').value);
-    update();
-  };
+  // e('font').onchange = () => {
+  //   tree.setFont(e('font').value);
+  //   update();
+  // };
 
-  e('fontsize').onchange = () => {
-    tree.setFontsize(e('fontsize').value);
-    update();
-  };
+  // e('fontsize').onchange = () => {
+  //   tree.setFontsize(e('fontsize').value);
+  //   update();
+  // };
 
-  e('triangles').onchange = () => {
-    tree.setTriangles(e('triangles').checked);
-    update();
-  };
+  // e('triangles').onchange = () => {
+  //   tree.setTriangles(e('triangles').checked);
+  //   update();
+  // };
 
-  e('nodecolor').onchange = () => {
-    tree.setColor(e('nodecolor').checked);
-    update();
-  };
+  // e('nodecolor').onchange = () => {
+  //   tree.setColor(e('nodecolor').checked);
+  //   update();
+  // };
 
-  e('autosub').onchange = () => {
-    tree.setSubscript(e('autosub').checked);
-    update();
-  };
+  // e('autosub').onchange = () => {
+  //   tree.setSubscript(e('autosub').checked);
+  //   update();
+  // };
 
-  e('align').onchange = () => {
-    tree.setAlignment(parseInt(e('align').value, 10));
-    update();
-  };
+  // e('align').onchange = () => {
+  //   tree.setAlignment(parseInt(e('align').value, 10));
+  //   update();
+  // };
 
-  e('spacing').oninput = () => {
-    tree.setSpacing(parseFloat(e('spacing').value / 100));
-    update();
-  };
+  // e('spacing').oninput = () => {
+  //   tree.setSpacing(parseFloat(e('spacing').value / 100));
+  //   update();
+  // };
 
   e('canvas').onclick = () => tree.download();
 }
 
 function update() {
   const phrase = e('code').value;
-  e('parse-error').innerHTML = '';
+  // e('parse-error').innerHTML = '';
 
   try {
     const tokens = Tokenizer.tokenize(phrase);
@@ -96,7 +96,7 @@ function update() {
     const syntax_tree = Parser.parse(tokens);
     tree.draw(syntax_tree);
   } catch (err) {
-    e('parse-error').innerHTML = err;
+    // e('parse-error').innerHTML = err;
   }
 }
 
