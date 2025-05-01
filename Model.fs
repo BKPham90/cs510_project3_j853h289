@@ -2,5 +2,6 @@ module Project3.Model
 
 type Message =
     {
-        Text : string
+        ParsedProgramText : string
+        BracketNotation : string
     }
