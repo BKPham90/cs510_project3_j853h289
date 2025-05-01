@@ -47,6 +47,8 @@ function registerServiceWorker() {
 function registerCallbacks() {
   e('code').oninput = update;
 
+  // e('drawButton').onclick = update;
+
   // e('font').onchange = () => {
   //   tree.setFont(e('font').value);
   //   update();
@@ -86,7 +88,7 @@ function registerCallbacks() {
 }
 
 function update() {
-  const phrase = e('code').value;
+  const phrase = e('code').innerText;
   // e('parse-error').innerHTML = '';
 
   try {

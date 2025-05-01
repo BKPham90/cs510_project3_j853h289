@@ -18,7 +18,8 @@ let parseHandler : HttpHandler =
             let inputProgram = ctx.TryGetQueryStringValue "program"
             match inputProgram with
             | Some programText -> 
-                let model = { Text = sprintf "%A" (fromString programText) }
+                // let model = { Text = sprintf "%A" (fromString programText) }
+                let model = { Text = "[ x \"3\" ]"}
                 let view = View.index model
                 return! htmlView view next ctx
             | None ->
