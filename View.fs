@@ -25,9 +25,17 @@ let index (model : Message) =
             button [ _type "submit" ] [ encodedText "Parse" ]
             input [ _type "text"; _name "program"; _placeholder "Enter program here" ]
         ]
+        
+        label [] [ encodedText "Entered Program:" ]
+        p [ _id "entered" ] [ encodedText model.EnteredProgramText ]
+
+        label [] [ encodedText "Parsed Program:"]
         p [ _id "parsed" ] [ encodedText model.ParsedProgramText ]
+        
+        label [] [ encodedText "Bracket Notation:"]
         p [ _id "code" ] [ encodedText model.BracketNotation ]
-        // button [ _id "drawButton"; _type "button" ] [ encodedText "Draw Tree"]
+        
+        // label [] [ encodedText "Abstract Syntax Tree:"]
         canvas [ _id "canvas"; ] []
     ]
     |> layout

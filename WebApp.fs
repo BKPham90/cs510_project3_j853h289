@@ -31,6 +31,7 @@ let rec printExpr (e : Absyn.expr) : string =
 
 let indexHandler =
     let model = {
+        EnteredProgramText = ""
         ParsedProgramText = ""
         BracketNotation = ""
     }
@@ -44,6 +45,7 @@ let parseHandler : HttpHandler =
             match inputProgram with
             | Some programText -> 
                 let model = {
+                    EnteredProgramText = programText
                     ParsedProgramText = sprintf "%A" (fromString programText)
                     BracketNotation = printExpr (fromString programText)
                 }
@@ -52,7 +54,8 @@ let parseHandler : HttpHandler =
                 return! htmlView view next ctx
             | None ->
                 let model = {
-                    ParsedProgramText = "There was an error when trying to get the program text from the HTTP request."
+                    EnteredProgramText = "There was an error when trying to get the program text from the HTTP request."
+                    ParsedProgramText = ""
                     BracketNotation = ""
                 }
                 let view = View.index model
