@@ -8,3 +8,21 @@ h1 {
     font-size: 1.5em;
     color: #334499;
 }
+
+.code {
+    font-family: 'Courier New', monospace;
+    color: #333;
+    font-size: 1em;
+}
+
+.code-title {
+    font-family: Lucida, sans-serif;
+    font-size: 1.2em;
+    color: #04125a;
+}
+
+.button-action {
+    background-color: #0088ff;
+    color: #fff;
+    font-size: 1em;
+}

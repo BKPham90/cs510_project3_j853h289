@@ -20,20 +20,22 @@ let layout (content: XmlNode list) =
 
 let index (model : Message) =
     [
-        h1 [] [ encodedText "Project3" ]
+        h1 [] [ encodedText "Project 3 - MicroML Abstract Syntax Tree Generator" ]
         form [ _method "GET"; _action "/parse" ] [
-            button [ _type "submit" ] [ encodedText "Parse" ]
+            button [ _type "submit"; _class "button-action" ] [ encodedText "Parse" ]
             input [ _type "text"; _name "program"; _placeholder "Enter program here" ]
         ]
         
-        label [] [ encodedText "Entered Program:" ]
-        p [ _id "entered" ] [ encodedText model.EnteredProgramText ]
+        br []
 
-        label [] [ encodedText "Parsed Program:"]
-        p [ _id "parsed" ] [ encodedText model.ParsedProgramText ]
+        label [ _class "code-title" ] [ encodedText "Entered Program:" ]
+        p [ _id "entered"; _class "code" ] [ encodedText model.EnteredProgramText ]
+
+        label [ _class "code-title" ] [ encodedText "Parsed Program:"]
+        p [ _id "parsed"; _class "code" ] [ encodedText model.ParsedProgramText ]
         
-        label [] [ encodedText "Bracket Notation:"]
-        p [ _id "code" ] [ encodedText model.BracketNotation ]
+        label [ _class "code-title" ] [ encodedText "Bracket Notation:"]
+        p [ _id "code"; _class "code" ] [ encodedText model.BracketNotation ]
         
         // label [] [ encodedText "Abstract Syntax Tree:"]
         canvas [ _id "canvas"; ] []
